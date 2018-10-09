@@ -84,10 +84,10 @@ const size_t   FUSION_TX_MIN_INPUT_COUNT                     = 12;
 const size_t   FUSION_TX_MIN_IN_OUT_COUNT_RATIO              = 4;
 
 const uint32_t KEY_IMAGE_CHECKING_BLOCK_INDEX                = 0;//parar inicio 0, otros caesos muy dificil inicial 2000000
-const uint32_t UPGRADE_HEIGHT_V2                             = 100;
+const uint32_t UPGRADE_HEIGHT_V2                             = 100; // aquí es cuando actualiza el pool de minado 
 const uint32_t UPGRADE_HEIGHT_MAX_BLOCK_SIZE                 = 120;
-const uint32_t UPGRADE_HEIGHT_V3                             = 200;
-const uint32_t UPGRADE_HEIGHT_V4                             = 144999;
+const uint32_t UPGRADE_HEIGHT_V3                             = 200; // aquí vuelve a actualizar
+const uint32_t UPGRADE_HEIGHT_V4                             = 144999; // aquí actualiza una vez más a una altisima dificultad
 const unsigned UPGRADE_VOTING_THRESHOLD                      = 90;               // percent
 const uint32_t UPGRADE_VOTING_WINDOW                         = EXPECTED_NUMBER_OF_BLOCKS_PER_DAY;  // blocks
 const uint32_t UPGRADE_WINDOW                                = EXPECTED_NUMBER_OF_BLOCKS_PER_DAY;  // blocks
