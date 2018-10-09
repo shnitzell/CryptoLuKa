@@ -26,21 +26,21 @@
 namespace CryptoNote {
 namespace parameters {
 
-const uint64_t DIFFICULTY_TARGET                             = 90; // seconds
-const uint32_t CRYPTONOTE_MAX_BLOCK_NUMBER                   = 500000000;
-const size_t   CRYPTONOTE_MAX_BLOCK_BLOB_SIZE                = 5000000000;
-const size_t   CRYPTONOTE_MAX_TX_SIZE                        = 1000000000;
-const uint64_t CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX       = 115; // addresses start with "L"
-const uint32_t CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW          = 10;
-const uint64_t CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT            = 270; // DIFFICULTY_TARGET * (DIFFICULTY_WINDOW_V4 - 1) / 20
+const uint64_t DIFFICULTY_TARGET                             = 90; // segundos en lso que se generan los nuevos bloques, minimo 60-Lo esperado
+const uint32_t CRYPTONOTE_MAX_BLOCK_NUMBER                   = 500000000;// numero max de una cadena
+const size_t   CRYPTONOTE_MAX_BLOCK_BLOB_SIZE                = 5000000000;//maximo de la cadena
+const size_t   CRYPTONOTE_MAX_TX_SIZE                        = 1000000000;// máximo de la transacción
+const uint64_t CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX       = 0x23d599; // addresses start with "Shnz"
+const uint32_t CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW          = 10; // confirmaciones  de red
+const uint64_t CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT            = 270; // DIFFICULTY_TARGET * (DIFFICULTY_WINDOW_V4 - 1) / 20 segundos
 
 const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 60;
 const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V4          = 11;
 
 // MONEY_SUPPLY - total number coins to be generated
-const uint64_t MONEY_SUPPLY									= UINT64_C(10000000000000000); // 100M
-const uint64_t FINAL_SUBSIDY_PER_MINUTE						= UINT64_C(20000000); // 0.20 LUK
-const unsigned EMISSION_SPEED_FACTOR                        = 22;
+const uint64_t MONEY_SUPPLY			= UINT64_C(10000000000000000); // 100M  cien milliiones con 8 decimales
+const uint64_t FINAL_SUBSIDY_PER_MINUTE		= UINT64_C(20000000); // 0.20 LUK
+const unsigned EMISSION_SPEED_FACTOR                        = 22;// proyección de años
 static_assert(EMISSION_SPEED_FACTOR <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
 
 const size_t   CRYPTONOTE_REWARD_BLOCKS_WINDOW               	= 100;
@@ -49,12 +49,12 @@ const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2  	= 1000000;
 const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1  	= 1000000;
 const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_CURRENT = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE;
 
-const size_t   CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE        = 600;
-const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT              = 8;
-const uint64_t MINIMUM_FEE                                   = UINT64_C(100000);    // pow(10, 5)
+const size_t   CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE        = 600;//max 1024
+const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT              = 8;//decimales de mi moneda
+const uint64_t MINIMUM_FEE                                   = UINT64_C(100000);    // pow(10, 5)  calculo comisión de red
 const uint64_t DEFAULT_DUST_THRESHOLD                        = UINT64_C(100000);    // pow(10, 5)
 
-const uint64_t EXPECTED_NUMBER_OF_BLOCKS_PER_DAY             = 24 * 60 * 60 / DIFFICULTY_TARGET;
+const uint64_t EXPECTED_NUMBER_OF_BLOCKS_PER_DAY             = 24 * 60 * 60 / DIFFICULTY_TARGET; // 
 const size_t   DIFFICULTY_WINDOW                             = EXPECTED_NUMBER_OF_BLOCKS_PER_DAY; // blocks
 const size_t   DIFFICULTY_CUT                                = 60;  // timestamps to cut after sorting
 const size_t   DIFFICULTY_LAG                                = 15;
@@ -66,10 +66,10 @@ const size_t  DIFFICULTY_WINDOW_V2							 = DIFFICULTY_BLOCKS_V2 + DIFFICULTY_CU
 const size_t  DIFFICULTY_WINDOW_V4							 = 61;
 
 
-const size_t   MAX_BLOCK_SIZE_INITIAL                        	= 100 * 1024;
+const size_t   MAX_BLOCK_SIZE_INITIAL                        	= 100 * 1024;//crecimento de los bloques
 const uint64_t MAX_BLOCK_SIZE_GROWTH_SPEED_NUMERATOR         	= 100 * 1024;
 const uint64_t MAX_BLOCK_SIZE_GROWTH_SPEED_NUMERATOR_V2			= 35 * 100 * 1024;
-const size_t   MAX_BLOCK_SIZE_ALLOWED_EVERY_N_BLOCK				= 5;
+const size_t   MAX_BLOCK_SIZE_ALLOWED_EVERY_N_BLOCK				= 5;//bloques caa cuanto crece
 const uint64_t MAX_BLOCK_SIZE_GROWTH_SPEED_DENOMINATOR       	= 365 * 24 * 60 * 60 / DIFFICULTY_TARGET;
 
 const uint64_t CRYPTONOTE_LOCKED_TX_ALLOWED_DELTA_BLOCKS     	= 1;
@@ -83,7 +83,7 @@ const size_t   FUSION_TX_MAX_SIZE                            = CRYPTONOTE_BLOCK_
 const size_t   FUSION_TX_MIN_INPUT_COUNT                     = 12;
 const size_t   FUSION_TX_MIN_IN_OUT_COUNT_RATIO              = 4;
 
-const uint32_t KEY_IMAGE_CHECKING_BLOCK_INDEX                = 2000000;
+const uint32_t KEY_IMAGE_CHECKING_BLOCK_INDEX                = 0;//parar inicio 0, otros caesos muy dificil inicial 2000000
 const uint32_t UPGRADE_HEIGHT_V2                             = 100;
 const uint32_t UPGRADE_HEIGHT_MAX_BLOCK_SIZE                 = 120;
 const uint32_t UPGRADE_HEIGHT_V3                             = 200;
@@ -103,7 +103,7 @@ const char     MINER_CONFIG_FILE_NAME[]                      	= "miner_conf.json
 } // parameters
 
 
-const char     CRYPTONOTE_NAME[]                             = "Luka";
+const char     CRYPTONOTE_NAME[]                             = "Shnitze";// hace referencia a la moneda como tal, el nombre puede ser cualquer tamaño
 
 const uint8_t  TRANSACTION_VERSION_1                         =  1;
 const uint8_t  TRANSACTION_VERSION_2                         =  2;
@@ -115,15 +115,15 @@ const uint8_t  BLOCK_MAJOR_VERSION_4                         =  4;
 const uint8_t  BLOCK_MINOR_VERSION_0                         =  0;
 const uint8_t  BLOCK_MINOR_VERSION_1                         =  0;
 
-const size_t   BLOCKS_IDS_SYNCHRONIZING_DEFAULT_COUNT        =  10000;  //by default, blocks ids count in synchronizing
+const size_t   BLOCKS_IDS_SYNCHRONIZING_DEFAULT_COUNT        =  10000;  //by default, conteo de los bloques en sincronización 
 const size_t   BLOCKS_SYNCHRONIZING_DEFAULT_COUNT            =  128;    //by default, blocks count in blocks downloading
 const size_t   COMMAND_RPC_GET_BLOCKS_FAST_MAX_COUNT         =  1000;
 
-const int      P2P_DEFAULT_PORT                              =  52420;
-const int      RPC_DEFAULT_PORT                              =  52421;
+const int      P2P_DEFAULT_PORT                              =  42000;//puertos que se desean para los nodos, que no esten bloqueados
+const int      RPC_DEFAULT_PORT                              =  42001;
 
-const size_t   P2P_LOCAL_WHITE_PEERLIST_LIMIT                =  1000;
-const size_t   P2P_LOCAL_GRAY_PEERLIST_LIMIT                 =  5000;
+const size_t   P2P_LOCAL_WHITE_PEERLIST_LIMIT                =  1000;//nodos nuevos cada vez que inicia
+const size_t   P2P_LOCAL_GRAY_PEERLIST_LIMIT                 =  5000;//nodos que ya se tenían
 
 const size_t   P2P_CONNECTION_MAX_WRITE_BUFFER_SIZE          = 64 * 1024 * 1024; // 64 MB
 const uint32_t P2P_DEFAULT_CONNECTIONS_COUNT                 = 8;
@@ -139,10 +139,8 @@ const size_t   P2P_DEFAULT_HANDSHAKE_INVOKE_TIMEOUT          = 5000;          //
 const char     P2P_STAT_TRUSTED_PUB_KEY[] = "";
 
 const char* const SEED_NODES[] = {
-	"seed79.cryptoluka.cl:52420",
-	"seed80.cryptoluka.cl:52420",
-	"seed152.cryptoluka.cl:52420",
-	"seed219.cryptoluka.cl:52420"
+	"192.168.0.112:42000",
+	"192.168.0.109:42000"
 };
 
 struct CheckpointData {
@@ -151,19 +149,7 @@ struct CheckpointData {
 };
 
 const CheckpointData CHECKPOINTS[] = {
-	{ 0, "3e7b089856003ff9706e8db0a530bfec03d91143491086a2835fcdc2a38373e0"}, // Genesis
-	{ 163, "b96a73c6d78c40ccd08e7f8578e2fb57395348eab0d0e5b4ad778783e89fa621"},
-	{ 164, "57b496b43159e766da46cacf307e06183c3832e65225941b297bcd124e3c3e5b"}, // Dead Peer
-	{ 165, "e15372c7a3ad29dbcf4009b4f9ed43586777b046650b81c2d56ca5dbc6a935e6"},
-	{ 18000, "4a0fd7a883ca5a180aaec36cbc1c2c204ef2f703170851b61e1de035e32b1613"},
-	{ 25900, "1183f7d7de6aaeae755e626614df0ef9610bf2df24d032bb7a1d0f9f2650a08a"},
-	{ 27483, "7c485abdc0418ccab03ba2dc57087db89b83721744d2beb0a17cc7ae9e694f07"}, // Fork V1.2 - Emission
-	{ 50000, "2e61795dd2e3cc5730299fc5f0ac51ecf97b4b5e798c71a212a101b549ca0a4c"}, // 50k
-	{ 100000, "118b28b5e31a5f84c83cf3f08be5baee7605b0f600c92cfbf329f18a60658235"}, // 100k
-	{ 117455, "fc4b46ea4d36c3ca8e0a98022afbf92c39754e6cdb0dbf4f2dba2af6af0966c6"},
-  	{ 132200, "20a3112cf291a3f36ce7a7df3ced26b1d3676b4ff19d75af0d60c32fb75e5cba"}, // Fix Checkpoint
-  	{ 145000, "13de5c33a257f60503b895e14dcc044da676631f190388f828751ab5c4078f0d"}, // 145k - LWMA 
-  	{ 200000, "c916a3fe696c973320a2e101cd89580135772a71e0cd1d3a001ceca874e657ce"} // 200k
+	{ 9000, "3e7b089856003ff9706e8db0a530bfec03d91143491086a2835fcdc2a38373e0"} // Genesis
 };
 }
 
